@@ -53,7 +53,7 @@ bool FeatureAlgorithm::extractFeatures(const cv::Mat& image, Keypoints& kp, Desc
 
     if (featureEngine)
     {
-        (*featureEngine)(image, cv::noArray(), kp, desc);
+        (*featureEngine).detectAndCompute(image, cv::noArray(), kp, desc);
     }
     else
     {

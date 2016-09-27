@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
 project(OPENCV_FEATURES_COMPARISON)
 
 find_package(OpenCV 3.0.0 REQUIRED)
@@ -15,6 +15,8 @@ link_directories(${OpenCV_LIBRARY_DIR})
 
 add_executable(test_opencv_features2d main.cpp ImageTransformation.hpp ImageTransformation.cpp FeatureAlgorithm.hpp FeatureAlgorithm.cpp AlgorithmEstimation.hpp AlgorithmEstimation.cpp CollectedStatistics.hpp
 CollectedStatistics.cpp)
+
+target_compile_features(test_opencv_features2d PRIVATE cxx_range_for)
 
 target_link_libraries( test_opencv_features2d ${OpenCV_LIBRARIES} )
       
